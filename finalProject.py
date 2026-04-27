@@ -13,12 +13,12 @@ def validate_guess():
     Returns the guess after making sure it is valid
     """
     guess = None
-    while guess is None:
+    while guess is None: #until given a number guess
         try:
             guess = int(input("Guess a number: "))
         except ValueError:
             print("Please enter a valid number.")
-    return guess
+    return guess #return the validated guess
 
 def make_guess(guess, correct):
     """
@@ -33,14 +33,14 @@ def make_guess(guess, correct):
         return "Correct!"
 
 if __name__ == "__main__":
-    correct = random.randint(1,100)
+    correct = random.randint(1,100) #creates guess 1-100
     num_guesses = 1
 
-    guess = validate_guess()
-    while make_guess(guess,correct)!="Correct!":
+    guess = validate_guess() #get the guess
+    while make_guess(guess,correct)!="Correct!": #repeat until correct
         print(make_guess(guess,correct))
         num_guesses+=1
         guess = validate_guess()
-        
+
     print("Correct!\nCongratulations!\nIt took you "+str(num_guesses)+" guesses!")
 
