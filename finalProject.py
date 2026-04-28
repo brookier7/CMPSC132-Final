@@ -33,14 +33,18 @@ def make_guess(guess, correct):
         return "Correct!"
 
 if __name__ == "__main__":
-    correct = random.randint(1,100) #creates guess 1-100
-    num_guesses = 1
+    playing = "Yes"
+    while playing.lower() == "yes": #play until the user does not want to anymore
+        correct = random.randint(1,100) #creates guess 1-100
+        num_guesses = 1
 
-    guess = validate_guess() #get the guess
-    while make_guess(guess,correct)!="Correct!": #repeat until correct
-        print(make_guess(guess,correct))
-        num_guesses+=1
-        guess = validate_guess()
+        guess = validate_guess() #get the guess
+        while make_guess(guess,correct)!="Correct!": #repeat until correct
+            print(make_guess(guess,correct))
+            num_guesses+=1
+            guess = validate_guess()
 
-    print("Correct!\nCongratulations!\nIt took you "+str(num_guesses)+" guesses!")
+        print("Correct!\nCongratulations!\nIt took you "+str(num_guesses)+" guesses!")
+        playing = input("Do you want to play again? ")
+    print("Thanks for playing.")
 
